@@ -3,6 +3,7 @@ package com.ap.ap.models;
 import antlr.collections.List;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 public class Usuario implements Serializable {
