@@ -31,5 +31,8 @@ public class UsuarioService {
     public void borrarUsuario(Long id){
         usuarioRepo.deleteById();
     }
+    public Usuario buscarUsuarioPorId(Long id) {
+        return usuarioRepo.findById(id).orElseThrow(() ->UserNotFoundException("usuario no encontrado"));
+    }
 
 }
