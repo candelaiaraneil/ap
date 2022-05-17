@@ -28,6 +28,6 @@ public class EducacionService {
         return educacionRepo.save(educacion);
     }
     public void borrarEducacion(Long id){
-        educacionRepo.deleteById();
+        educacionRepo.deleteById(id);
     }
 }

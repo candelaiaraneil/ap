@@ -1,9 +1,8 @@
 package com.ap.ap.models;
 
-import antlr.collections.List;
-
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Usuario implements Serializable {

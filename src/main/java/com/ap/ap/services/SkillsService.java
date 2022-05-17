@@ -29,6 +29,6 @@ public class SkillsService {
         return skillsRepo.save(skills);
     }
     public void borrarSkills(Long id){
-        skillsRepo.deleteById();
+        skillsRepo.deleteById(id);
     }
 }

@@ -2,6 +2,7 @@ package com.ap.ap.controller;
 
 import com.ap.ap.models.Usuario;
 import com.ap.ap.services.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +16,8 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
     @GetMapping("/id/{id}")
-    public ResponseEntity<Usuario> obtenerUsuario(PathVariable("id") Long id) {
-        Usuario usuario=usuarioService.buscarUsuarioPorId(id);
+    public ResponseEntity<Usuario> obtenerUsuario(@PathVariable("id") Long id) {
+        Usuario usuario= usuarioService.buscarUsuarioPorId(id);
         return new ResponseEntity<>(usuario, HttpStatus.OK);
     }
     @PutMapping("/update")

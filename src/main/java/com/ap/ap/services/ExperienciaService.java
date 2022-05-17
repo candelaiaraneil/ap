@@ -29,6 +29,6 @@ public class ExperienciaService {
         return experienciaRepo.save(experiencia);
     }
     public void borrarExperiencia(Long id){
-        experienciaRepo.deleteById();
+        experienciaRepo.deleteById(id);
     }
 }

@@ -6,6 +6,7 @@ import com.ap.ap.repository.UsuarioRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.ap.ap.exception.UserNotFoundException;
 
 import java.util.List;
 
@@ -19,7 +20,6 @@ public class UsuarioService {
         this.usuarioRepo = usuarioRepo;
     }
     public Usuario addUsuario(Usuario usuario ){
-
         return usuarioRepo.save(usuario);
     }
     public List<Usuario> buscarUsuario(){
@@ -29,10 +29,10 @@ public class UsuarioService {
         return usuarioRepo.save(usuario);
     }
     public void borrarUsuario(Long id){
-        usuarioRepo.deleteById();
+        usuarioRepo.deleteById(id);
     }
     public Usuario buscarUsuarioPorId(Long id) {
-        return usuarioRepo.findById(id).orElseThrow(() ->UserNotFoundException("usuario no encontrado"));
+        return usuarioRepo.findById(id).orElseThrow(() ->  new UserNotFoundException("usuario no encontrado"));
     }
 
 }
