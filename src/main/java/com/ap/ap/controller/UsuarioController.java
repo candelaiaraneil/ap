@@ -26,4 +26,5 @@ public class UsuarioController {
         Usuario updateUsuario=usuarioService.editarUsuario(usuario);
         return new ResponseEntity<>(updateUsuario, HttpStatus.OK);
     }
+
 }
