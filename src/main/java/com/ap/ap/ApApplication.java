@@ -15,8 +15,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-import com.ap.ap.security.JWTAuthorizationFilter;
-
 @SpringBootApplication
 public class ApApplication {
 
@@ -38,19 +36,5 @@ public class ApApplication {
 		return new CorsFilter(urlBasedCorsConfigurationSource);
 	}
 
-	@EnableWebSecurity
-	@Configuration
-	class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-		@Override
-		protected void configure(HttpSecurity http) throws Exception {
-			http.csrf().disable()
-					.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
-					.authorizeRequests()
-					.antMatchers(HttpMethod.POST, "/login").permitAll()
-					.antMatchers(HttpMethod.GET).permitAll()
-					.anyRequest().authenticated();
-		}
 	}
-
-}
